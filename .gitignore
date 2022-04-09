@@ -1,2 +1,5 @@
 # I probably shouldn't be storing my key in plaintext, but I'm too lazy for enviroment variables
 key.key
+
+# For tests
+test.py

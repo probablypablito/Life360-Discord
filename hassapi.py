@@ -1,16 +1,23 @@
+# https://github.com/ddxfish/home-assistant-python-api-client/
 
 from requests import get, post
 import json
 
 class HassRestAPIClient:
     def __init__(self):
+
+
+        print("worked")
+        f = open("key.key","r")
+
         #Change to your Home Assistant API URL (ex. http://192.168.1.100:8123/api )
-        self.hassurl = "http://192.168.1.100:8123/api"
+        self.hassurl = f.readline()
         #Make sure you enter your own Long Time Access token (Bearer token) from Home Assistant
         self.headers = {
-            "Authorization": "Bearer BEARERTOKENGOESHERE",
+            "Authorization": "Bearer " + f.readline(),
             "content-type": "application/json",
         }
+        f.close()
 
     #Get information from home assistant states
     def getHassStates(self, entitysearch="", key="all", exactmatch=0):
